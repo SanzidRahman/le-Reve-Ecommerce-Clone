@@ -5,12 +5,8 @@ import Navbar from './Navbar'
 
 const Headers = () => {
   return (
-    <div>
-        <TopHeader />
-        <MiddleHeader />
-         <div className="h-[1px] w-full border border-gray-100 "></div>
-        <Navbar />
-         <div className="h-[1px] w-full border border-gray-100 "></div>
+    <div className=' fixed top-0 z-999 w-full'>
+        
     </div>
   )
 }

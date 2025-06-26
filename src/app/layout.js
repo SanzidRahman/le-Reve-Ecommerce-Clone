@@ -1,9 +1,13 @@
-import { Montserrat } from "next/font/google";
 import "./globals.css";
-import Headers from "@/components/Headers";
+import { Montserrat } from "next/font/google";
+import TopHeader from "@/components/TopHeader";
+import MiddleHeader from "@/components/MiddleHeader";
+import Navbar from "@/components/Navbar";
+import TopFortter from "@/components/TopFortter";
+import BottomFotter from "@/components/BottomFotter";
 
 const montserrat = Montserrat({
-  weight: ["100" , "200", "300",  "400", "500", "600" , "700",  "900" ],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "900"],
   subsets: ["latin"],
 });
 
@@ -16,8 +20,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={montserrat.className}>
-        <Headers />
-        {children}</body>
+        <div>
+          <TopHeader />
+          <MiddleHeader />
+          <div className="h-[1px] w-full border border-gray-100 "></div>
+          <Navbar />
+          <div className="h-[1px] w-full border border-gray-100 "></div>
+          <main>{children}</main>
+          <TopFortter />
+          <BottomFotter />
+        </div>
+      </body>
     </html>
   );
 }

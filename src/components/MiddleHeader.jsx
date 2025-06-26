@@ -11,7 +11,7 @@ import Logo from "../../public/logo.svg";
 
 const MiddleHeader = () => {
   return (
-    <div className="h-15 w-full bg-[#fff] flex justify-between px-10  items-center">
+    <div className=" h-15 w-full bg-[#fff] flex justify-between px-10  items-center">
       <div className="hidden xl:inline-flex">
         <div className="flex mr-6 space-x-1 justify-center items-center">
           <GrContact className="text-sm" />
