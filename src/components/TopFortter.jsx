@@ -2,7 +2,7 @@ import React from "react";
 
 const TopFortter = () => {
   return (
-    <div className="flex-col px-4 xl:flex max-w-[980] mx-auto justify-evenly space-x-4">
+    <div className="flex-col px-4 xl:flex xl:flex-row max-w-[980] mx-auto justify-evenly space-x-4">
       <div className="flex flex-col basis-[50%] mt-10">
         <h1 className="font-bold">Le-reve</h1>
         <p className="text-[10px] mt-2">
