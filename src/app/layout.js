@@ -27,8 +27,8 @@ export default function RootLayout({ children }) {
           <Navbar />
           <div className="h-[1px] w-full border border-gray-100 "></div>
           <main>{children}</main>
-          {/* <TopFortter /> */}
-          {/* <BottomFotter /> */}
+          <TopFortter />
+          <BottomFotter />
         </div>
       </body>
     </html>

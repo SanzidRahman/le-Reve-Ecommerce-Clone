@@ -1,39 +1,74 @@
 "use client";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 const Desktop = ({ menu }) => {
   const hasSubMenu = menu?.sublinks?.length > 0;
-  console.log("Menu: ", menu.sublinks);
+  const [isHover, setIsHover] = useState(false);
+
+  const toggleHoverMenu = () => setIsHover(!isHover);
+
+  const subMenuAnimation = {
+    enter: {
+      opacity: 1,
+      rotateX: 0,
+      transition: {
+        duration: 0.5,
+      },
+      display: "block",
+    },
+    exit: {
+      opacity: 0,
+      rotateX: -20,
+      transition: {
+        duration: 0.2,
+      },
+      display: "none",
+    },
+  };
 
   return (
-    <div className="">
-      <li >
-        <Link href={menu.href}>{menu.title}</Link>
+    <>
+      <motion.li onHoverEnd={toggleHoverMenu} onHoverStart={toggleHoverMenu}>
+        <Link className="text-[11px]" href={menu.href}>
+          {menu.title}
+        </Link>
         <div>
-          <div >
+          <div>
             {hasSubMenu && (
-              <div>
+              <div className="">
                 {/* this is for men & Women */}
-                <div className="flex absolute h-40 w-screen right-0 justify-center gap-x-10 bg-emerald-600 "> 
-                  {menu.sublinks.map((mySublink) => (
-                    
-                    <div key={mySublink.id}>
-                      <h1>{mySublink.Head}</h1>
-                      <div className="flex flex-col">
-                        {mySublink.sublink.map((link) => (
-                          <div className="" key={link.id}>                    <p>{link.title}</p>
-                          </div>
-                        ))}
+                <motion.div
+                  className=" absolute h-60 w-screen z-9999999 top-29 right-0 bg-[#fff] "
+                  initial="exit"
+                  animate={isHover ? "enter" : " exit"}
+                  variants={subMenuAnimation}
+                >
+                  <div className="flex justify-center gap-x-10 pt-4">
+                    {menu.sublinks.map((mySublink) => (
+                      <div key={mySublink.id}>
+                        <h1 className="font-bold text-[12px]">
+                          {mySublink.Head}
+                        </h1>
+                        <div className="flex flex-col justify-center">
+                          {mySublink.sublink.map((link) => (
+                            <div className="" key={link.id}>
+                              {" "}
+                              <p className="text-[10px]">{link.title}</p>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
+                    ))}
+                  </div>
+                </motion.div>
               </div>
             )}
           </div>
         </div>
-      </li>
-    </div>
+      </motion.li>
+    </>
   );
 };
 

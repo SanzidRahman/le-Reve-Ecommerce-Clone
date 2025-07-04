@@ -1,9 +1,9 @@
 import { IoCloseSharp } from "react-icons/io5";
 import { NavbarItem } from "@/lib";
-import Link from "next/link";
 import { MdStorefront } from "react-icons/md";
 import { FaApple } from "react-icons/fa";
 import { FaGooglePlay } from "react-icons/fa";
+import MobileDesktop from "./MobileDesktop";
 
 const Sidebar = ({ isOpen, onClose }) => {
   return (
@@ -12,7 +12,6 @@ const Sidebar = ({ isOpen, onClose }) => {
         isOpen ? "translate-x-0" : " -translate-x-full"
       } `}
     >
-     
       <div className="flex gap-x-2">
         <button className="uppercase h-6 text-[12px] px-2 bg-gray-100/40">
           Shop
@@ -20,18 +19,15 @@ const Sidebar = ({ isOpen, onClose }) => {
         <button className="uppercase h-6 text-[12px] px-2 bg-gray-100/40">
           Sign In / Sign Up
         </button>
-         
+
         <button onClick={onClose}>
           <IoCloseSharp className="text-2xl ml-25" />
         </button>
-      
       </div>
       <div className="mt-4 space-y-2">
-        {NavbarItem.map((item) => (
-          <div key={item.title}>
-            <Link href={item.href} className="font-light text-[12px]">
-              {item.title}{" "}
-            </Link>
+        {NavbarItem.map((menu) => (
+          <div key={menu.id}>
+            <MobileDesktop menu={menu} />
             <hr className="h-2 w-60 border-black/20"></hr>
           </div>
         ))}

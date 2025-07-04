@@ -7,7 +7,6 @@ const MobileView = ({ menu }) => {
       <li className="list-none">
         <Link href={menu.href}>{menu.title}</Link>
       </li>
-    
     </div>
   );
 };

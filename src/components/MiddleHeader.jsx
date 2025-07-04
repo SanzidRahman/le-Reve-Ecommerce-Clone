@@ -1,4 +1,5 @@
 "use client";
+
 import { GrContact } from "react-icons/gr";
 import { FaApple } from "react-icons/fa";
 import { FaGooglePlay } from "react-icons/fa";
@@ -56,7 +57,10 @@ const MiddleHeader = () => {
         </div>
       </div>
       <div>
-        <Sidebar isOpen = { IsOpenSidebar} onClose={() => setIsOpenSidebar(false)} />
+        <Sidebar
+          isOpen={IsOpenSidebar}
+          onClose={() => setIsOpenSidebar(false)}
+        />
       </div>
     </div>
   );
