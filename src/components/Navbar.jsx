@@ -19,9 +19,7 @@ const Navbar = () => {
         <div className="hidden xl:flex gap-x-4 uppercase mr-40 text-sm font-light">
           {NavbarItem.map((menu) => (
             <div key={menu.id}>
-              <ul>
-                <Desktop menu={menu} key={menu.id} />
-              </ul>
+              <Desktop menu={menu} key={menu.id} />
             </div>
           ))}
         </div>
@@ -34,6 +32,7 @@ const Navbar = () => {
           <AiOutlineShopping />
         </button>
       </div>
+      <div className="h-[1px] w-full border border-gray-100"></div>
     </div>
   );
 };

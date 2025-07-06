@@ -2,11 +2,12 @@ export const NavbarItem = [
   {
     id: "1",
     title: "Rainy Day",
-    href: "/",
+    href: "/rainy-day",
     sublinks: [
       {
         id: "100",
         Head: "Women",
+        image : "/image.jpg",
         sublink: [
           { id: "3", title: "Tops", href: "/" },
           { id: "3333", title: "Kameez", href: "/" },
@@ -19,6 +20,7 @@ export const NavbarItem = [
       {
         id: "101",
         Head: "Men",
+        image : "/image2.webp",
         sublink: [
           { id: "8", title: "Panjabi", href: "/" },
           { id: "9", title: "Polos", href: "/" },

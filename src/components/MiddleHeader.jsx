@@ -12,9 +12,12 @@ import { HiMenuAlt4 } from "react-icons/hi";
 import Logo from "../../public/logo.svg";
 import { useState } from "react";
 import Sidebar from "./Sidebar";
+import Link from "next/link";
+
 
 const MiddleHeader = () => {
   const [IsOpenSidebar, setIsOpenSidebar] = useState(false);
+  const isLoggedIn = false;
 
   return (
     <div>
@@ -34,13 +37,19 @@ const MiddleHeader = () => {
           <button onClick={() => setIsOpenSidebar(!IsOpenSidebar)}>
             <HiMenuAlt4 className="xl:hidden text-2xl" />
           </button>
+          <Link href={"/"}>
           <Image src={Logo} alt="Logo" height={150} width={150} />
+          </Link>
         </div>
         <div className="flex gap-x-3">
           <div className="flex gap-x-4 justify-center items-center">
             <div className="hidden xl:flex justify-center items-center">
               <IoIosContact className="text-2xl " />
-              <p className="font-light text-[10px]">Log In/Sign Up</p>
+              <div className="text-[12px]">
+                {
+                  isLoggedIn ? <Link href={"/log-in"} >logout</Link> : <Link href={"/sign-in"}  className="cursor-pointer">SignIn</Link>
+                }
+              </div>
             </div>
             <div className="hidden xl:flex justify-center items-center">
               <TbBuildingStore />
@@ -62,6 +71,7 @@ const MiddleHeader = () => {
           onClose={() => setIsOpenSidebar(false)}
         />
       </div>
+      <div className="h-[1px] w-full border border-gray-100"></div>
     </div>
   );
 };

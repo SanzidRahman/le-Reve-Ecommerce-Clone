@@ -34,7 +34,7 @@ const MobileDesktop = ({ menu }) => {
           <div>
             <div>
               {menu.sublinks.map((item) => (
-                <div className={`pr-4 }`}>
+                <div key={item.id} className={`pr-4 }`}>
                   <h1
                     className="cursor-pointer pl-4 flex justify-between mr-30"
                     onClick={() =>
@@ -58,7 +58,7 @@ const MobileDesktop = ({ menu }) => {
                     }`}
                   >
                     {item.sublink.map((finalItem) => (
-                      <div className="pl-10">
+                      <div key={finalItem.id} className="pl-10">
                         <div>
                           <p>{finalItem.title}</p>
                         </div>

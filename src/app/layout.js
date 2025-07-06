@@ -23,12 +23,8 @@ export default function RootLayout({ children }) {
         <div>
           <TopHeader />
           <MiddleHeader />
-          <div className="h-[1px] w-full border border-gray-100 "></div>
           <Navbar />
-          <div className="h-[1px] w-full border border-gray-100 "></div>
           <main>{children}</main>
-          <TopFortter />
-          <BottomFotter />
         </div>
       </body>
     </html>

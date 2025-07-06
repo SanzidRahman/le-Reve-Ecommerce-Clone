@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import Image from "next/image";
 
 const Desktop = ({ menu }) => {
   const hasSubMenu = menu?.sublinks?.length > 0;
@@ -22,7 +23,7 @@ const Desktop = ({ menu }) => {
       opacity: 0,
       rotateX: -20,
       transition: {
-        duration: 0.2,
+        duration: 0.5,
       },
       display: "none",
     },
@@ -30,7 +31,7 @@ const Desktop = ({ menu }) => {
 
   return (
     <>
-      <motion.li onHoverEnd={toggleHoverMenu} onHoverStart={toggleHoverMenu}>
+      <motion.li className="list-none" onHoverEnd={toggleHoverMenu} onHoverStart={toggleHoverMenu}>
         <Link className="text-[11px]" href={menu.href}>
           {menu.title}
         </Link>
@@ -45,20 +46,32 @@ const Desktop = ({ menu }) => {
                   animate={isHover ? "enter" : " exit"}
                   variants={subMenuAnimation}
                 >
-                  <div className="flex justify-center gap-x-10 pt-4">
+                  <div className="flex justify-center gap-x-10 mt-6">
                     {menu.sublinks.map((mySublink) => (
-                      <div key={mySublink.id}>
-                        <h1 className="font-bold text-[12px]">
+                      <div key={mySublink.id} className="flex gap-x-5">
+                        <div>
+                          <Image
+                            src={mySublink.image}
+                            alt="Image"
+                            height={100}
+                            width={100}
+                          />
+                        </div>
+                        <div className="flex flex-col">
+                          <h1 className="font-bold text-[12px] underline">
                           {mySublink.Head}
                         </h1>
-                        <div className="flex flex-col justify-center">
+                        
                           {mySublink.sublink.map((link) => (
                             <div className="" key={link.id}>
                               {" "}
-                              <p className="text-[10px]">{link.title}</p>
+                              <Link href={link.href} className="text-[10px] hover:text-blue-500">
+                                {link.title}
+                              </Link>
                             </div>
                           ))}
                         </div>
+                        
                       </div>
                     ))}
                   </div>
